@@ -13,11 +13,13 @@ namespace GuessTheNumber
             int max = 100;
             int guess = 0;
             int guesses = 0;
+            String response = "";
 
             while (playAgain)
             {
                 guess = 0;
                 guesses = 0;
+                response = "";
                 number = random.Next(min, max + 1);
                 while (guess != number)
                 {
@@ -35,8 +37,24 @@ namespace GuessTheNumber
                 }
                 Console.WriteLine("Number: " + number);
                 Console.WriteLine("You Win!!");
+                Console.WriteLine("Guesses: " + guesses);
+
+                Console.WriteLine("Would you like to play again? Y or N?");
+                response = Console.ReadLine();
+                response = response.ToUpper();
+
+                if (ApplicationException.Equals(response, "Y"))
+                {
+                    playAgain = true;
+                } else if (ApplicationException.Equals(response, "N"))
+                {
+                    playAgain = false;
+                } else
+                {
+                    Console.WriteLine("Enter a valid value (Y/N)");
+                }
             }
-            
+            Console.WriteLine("Thanks for Playing!");
             Console.ReadKey();
         }
     }
