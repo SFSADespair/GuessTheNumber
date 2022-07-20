@@ -24,6 +24,16 @@ namespace GuessTheNumber
                     Console.WriteLine("Guess a number between " + min + " - " + max + ": ");
                     guess = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Guess: " + guess);
+                    if (guess == number)
+                    {
+                        Console.WriteLine("You guessed correctly!");
+                    } else if (guess > number)
+                    {
+                        Console.WriteLine("Your value is higher than the random number. Try Again!");
+                    } else
+                    {
+                        Console.WriteLine("Your value is lower than the random number. Try Again!");
+                    }
                 }
             }
             
